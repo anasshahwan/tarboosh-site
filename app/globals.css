@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #fffdf9;
+  --color-linen: #eef3ee;
+  --color-jordan-green: #006b44;
+  --color-ink: #181a18;
+  --color-jordan-red: #b82432;
+  --color-muted: #636963;
+  --font-mono: "Courier New", monospace;
+}
+
+@theme inline {
+  --font-sans: var(--font-manrope), Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+  }
+  body {
+    @apply bg-paper font-sans text-ink;
+  }
+  button, a, input, select {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button {
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-jordan-red);
+    outline-offset: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; }
+  }
+}
